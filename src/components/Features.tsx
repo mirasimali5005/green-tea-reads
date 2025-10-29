@@ -30,9 +30,9 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-24 px-4 gradient-soft">
-      <div className="container mx-auto">
-        <div className="text-center mb-16">
+    <section className="py-24 px-4 gradient-soft relative z-10">
+      <div className="container mx-auto perspective-lg">
+        <div className="text-center mb-16" style={{ transform: "translateZ(50px)" }}>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
             Your Cozy Essentials
           </h2>
@@ -41,12 +41,15 @@ const Features = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 perspective">
           {features.map((feature, index) => (
             <div 
               key={feature.title}
               className="animate-in fade-in duration-700"
-              style={{ animationDelay: `${index * 100}ms` }}
+              style={{ 
+                animationDelay: `${index * 150}ms`,
+                transform: `translateZ(${(index + 1) * 20}px)`
+              }}
             >
               <FeatureCard {...feature} />
             </div>
